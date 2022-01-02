@@ -38,14 +38,17 @@ const Editor = () => {
     var zip = new JSZip();
     delete selectedTemplate["index.html"];
     delete selectedTemplate["thumbnail.png"];
+    const folder = zip.folder("template");
+    console.log({ selectedTemplate });
     await Object.entries(selectedTemplate).forEach(async ([location, file]) => {
       const fullPathArray = location.split("/");
       const fileName = fullPathArray.pop();
       const fileContent = await file.async("text");
-      await zip.file(fileName, fileContent);
+      await folder.file(fileName, fileContent);
     });
 
-    zip.file("index.html", updatedHtml);
+    folder.file("index.html", updatedHtml);
+    console.log(zip);
     setTimeout(
       () =>
         zip
