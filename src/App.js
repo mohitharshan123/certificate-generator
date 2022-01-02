@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { Editor } from "./components/Editor";
+import { Preview } from "./components/Preview";
+import { Templates } from "./components/Templates";
+import { TemplatesProvider } from "./context";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-row w-full justify-between">
+      <TemplatesProvider>
+        <Templates />
+        <Preview />
+        <Editor />
+      </TemplatesProvider>
     </div>
   );
-}
+};
 
 export default App;
