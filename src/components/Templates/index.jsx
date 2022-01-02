@@ -70,7 +70,7 @@ const Templates = () => {
         <p className="font-semibold text-white text-md">Instructions for zip</p>
         <span>
           <ul className="text-sm font-thin text-white list-disc">
-            <li>Upload only .zip file</li>
+            <li>Upload only template.zip file</li>
             <li>
               Zip should contain a thumbnail.png image to display thumbnail
             </li>
