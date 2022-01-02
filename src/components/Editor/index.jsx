@@ -39,7 +39,6 @@ const Editor = () => {
     delete selectedTemplate["index.html"];
     delete selectedTemplate["thumbnail.png"];
     const folder = zip.folder("template");
-    console.log({ selectedTemplate });
     await Object.entries(selectedTemplate).forEach(async ([location, file]) => {
       const fullPathArray = location.split("/");
       const fileName = fullPathArray.pop();
@@ -48,7 +47,6 @@ const Editor = () => {
     });
 
     folder.file("index.html", updatedHtml);
-    console.log(zip);
     setTimeout(
       () =>
         zip
